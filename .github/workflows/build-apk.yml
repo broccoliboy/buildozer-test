@@ -50,7 +50,7 @@ jobs:
             libffi-dev \
             libssl-dev
           export PATH=$PATH:~/.local/bin/
-          python3 -m pip install --upgrade buildozer
+          python3 -m pip install --upgrade git+https://github.com/kivy/buildozer
   
       - name: Build with Buildozer
         run: buildozer android debug
