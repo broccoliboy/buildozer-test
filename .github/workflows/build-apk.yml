@@ -55,9 +55,11 @@ jobs:
           name: package
           path: ./bin/*.apk
   release:
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-22.04
     needs: build
-    if: startsWith(github.ref, 'refs/tags/v')
+    permissions:
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
